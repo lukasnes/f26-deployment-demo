@@ -14,10 +14,10 @@ module.exports = {
         res.sendFile(path.join(__dirname, '../../client/index.html'))
     },
     getCSS: (req,res) => {
-        rollbar.log("They hit our website.")
         res.sendFile(path.join(__dirname, '../../client/styles.css'))
     },
     getJavaScript: (req,res) => {
+        rollbar.log("They hit our website.")
         res.sendFile(path.join(__dirname, '../../client/main.js'))
     },
     getProfile: (req,res) => {
