@@ -2,7 +2,10 @@
 let castle = document.getElementById('castle')
 
 const sayWelcome = evt => {
-    alert("Welcome to my castle!")
+    axios.get('/rollbar')
+        .then(response => {
+            alert(response.data)
+        })
 }
 
 castle.addEventListener('click', sayWelcome)

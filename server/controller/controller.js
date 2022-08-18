@@ -11,6 +11,9 @@ rollbar.log("Hello World")
 
 module.exports = {
     getHomePage: (req,res) => {
+        rollbar.error("Page did not load properly")
+        rollbar.warning("You need to load better")
+        rollbar.critical()
         res.sendFile(path.join(__dirname, '../../client/index.html'))
     },
     getCSS: (req,res) => {
@@ -22,5 +25,9 @@ module.exports = {
     getProfile: (req,res) => {
         rollbar.log("They requested the profile page.")
         res.sendFile(path.join(__dirname, '../../client/profile.html'))
+    },
+    getRollbar: (req,res) => {
+        rollbar.log("They clicked on the castle")
+        res.status(200).send("Welcome to my castle")
     }
 }
