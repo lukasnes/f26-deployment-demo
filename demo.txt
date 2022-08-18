@@ -1,0 +1,61 @@
+Deployment Demo
+Instructions
+Download demo folder - Make note that it includes solution folder
+
+Starting contents includes an index.html, but nothing further.
+
+We will render our app via express, so create a server folder with an index.js file.
+
+Run: npm init -y
+
+Run npm i express
+
+Build Out Your Server
+=====================================================================
+=====================================================================
+=====================================================================
+const express = require('express')
+const path = require('path')
+
+const app = express()
+
+app.get('/',function(req,res) {
+  res.sendFile(path.join(__dirname, '../index.html'));
+});
+
+const port = process.env.PORT || 4005
+// This will get the PORT variable from Heroku. However, if one isn't assigned (ex. when we are testing locally) it will use port 4005.
+
+app.listen(port, () => {
+  console.log(`Listening on port ${port}`)
+})
+=================================================================================
+=================================================================================
+=================================================================================
+Additional Steps
+Create a new file called Procfile (no extension) and add web:npm start
+
+Go to your package.json file and update `main` to have a value of server/index.js
+
+In your package.json, update your `scripts` to include a `start` key and assign it the value of `node server/index.js`
+
+Push your changes to GitHub.
+
+Set Up Heroku Account
+Create Heroku Account or log in to an existing one (give students time to go through sign up process).
+
+Deploy Application
+Click New -> Create New App
+
+Enter unique app name and click Create App
+
+Select Connect to GitHub option and enter GitHub credentials
+
+Search for a repo name and click connect on appropriate repo
+
+Select appropriate branch and click Deploy Branch
+
+Give it a minute to build and then click the View button that appears
+
+Additional
+Demonstrate automatic deployments by turning the feature on in Heroku - update html code - push changes - jump back to heroku to demonstrate build taking place on activity tab (this may take a minute to start) - Refresh deployed site to see your changes

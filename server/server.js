@@ -2,7 +2,7 @@ const express = require("express")
 const cors = require("cors")
 const app = express()
 
-const { getHomePage, getCSS, getJavaScript } = require('./controller/controller.js')
+const { getHomePage, getCSS, getJavaScript, getProfile } = require('./controller/controller.js')
 
 app.use(cors())
 app.use(express.json())
@@ -15,6 +15,7 @@ app.use(express.static('client'))
 app.get('/', getHomePage)
 app.get('/css', getCSS)
 app.get('/js', getJavaScript)
+app.get('/profile', getProfile)
 
 
 const port = process.env.PORT || 4000
